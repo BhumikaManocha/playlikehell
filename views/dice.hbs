@@ -12,6 +12,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <!-- <script src="https://code.jquery.com/jquery-3.4.1.js"></script> -->
     {{!-- <script src="dice.js"></script> --}}
+    <link rel="icon" type="image/jpg" href="https://i.dailymail.co.uk/i/pix/2012/09/13/article-2202616-14FEC4B7000005DC-516_634x420.jpg">
+
 </head>
 
 <style>
@@ -103,9 +105,9 @@ button{
            <div class="col-3 score card" id="player2">0</div>
         </div> <br> <br> 
             <button id="reset" class="btn btn-danger">Reset</button>
-{{!-- 
-            <div class="win1" style="color: white; height: 1rem">player 1 won</div>
-            <div class="win2" style="color: white; height: 1rem">player 2 won</div> --}}
+
+            <div id="win1" style="color: white; height: 1rem">player 1 won</div>
+            <div id="win2" style="color: white; height: 1rem">player 2 won</div>
 
    </div>
 </body>
@@ -216,13 +218,13 @@ button{
                     if(score1>=10)
                     {
                         console.log("player 1 won!")
-                        {{!-- win1.style.display = 'block'; --}}
+                        win1.style.display = 'block';
                     }
  
                     else if(score2>=10)
                     {
                         console.log("player 2 won!")
-                        {{!-- win2.style.display = 'block'; --}}
+                        win2.style.display = 'block';
                     }
 
 
