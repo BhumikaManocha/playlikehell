@@ -114,9 +114,11 @@
 </div>
 </div>
 
-    <form action="">
+    {{!-- <form action="">
       <button id="but" onclick="swap();">click</button>
-    </form>
+    </form> --}}
+
+    <button id="but"> clickooo</button>
 
 </body>
 
@@ -127,14 +129,24 @@ window.onload = function(){
     var owl2 = document.getElementById("owl2");
 
 
-    owl1SRC=owl1.src;
-  owl2SRC=owl2.src;
+    {{!-- owl1SRC=owl1.src;
+  owl2SRC=owl2.src; --}}
 
+but.onclick= function onclickfunc(owl1,owl2) {
+    	var first = x.indexOf(parseInt(owl1, 10)),
+			second = x.indexOf(parseInt(owl2, 10));
+		x[first] = parseInt(owl2, 10);
+		x[second] = parseInt(owl1, 10);
+		return 0;
 
+}
+
+{{!-- 
 function swap(){
+  
 
-  owl1.src=owl2SRC;
-  olw2.src=owl1SRC;
+  {{!-- owl1.src=owl2SRC;
+  olw2.src=owl1SRC; --}}
 }
    
     {{!-- swap(owl1,owl2);
@@ -145,6 +157,14 @@ function swap(){
         b = temp;
         console.log("clicked!!!")
     } --}}
+{{!-- 
+    function swap(){
+      var owl1,owl2;
+      owl1=document.getElementById('owl1').src;
+      owl2=document.getElementById('owl2').src;
+      document.getElementById('owl2').src=owl1;
+      document.getElementById('owl').src=owl2;
+    } --}} --}}
 } 
 
 </script>
