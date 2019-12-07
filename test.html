@@ -1,11 +1,18 @@
-<html>
-    <head>
-        <title>TIC TAC TOE</title>
-    </head>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tic Tac Toe</title>
+     <link rel="icon" type="image/jpg" href="https://miro.medium.com/max/783/1*81GhGbn6cnJycDP92rBDqQ.png">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+</head>
     <style>
         body {
     margin-top: 40px;
-    background: #485b6e;
+    background: #2b2c2c;
         color: #fff;
         font-family: Helvetica;
     font-weight: bold;
@@ -52,16 +59,16 @@ h1 {
 
 #game > li.x {
     font-size: 40px;
-    color: #ed4e6e
+    color: orangered;
 }
 
 #game > li.o {
     font-size: 40px;
-    color: #485b6e;
+    color: #2b2c2c;
 }
 
 #game > li:hover {
-    background: #f9f9f9;
+    background: wheat;
 }
 
 #game > li:active {
@@ -93,7 +100,7 @@ h1 {
     text-align: center;
         border: none;
         padding: 0.6em 1.2em;
-        background: #ed4e6e;
+        background: orangered;
         color: #fff;
         font-size: 1em;
         letter-spacing: 1px;
@@ -110,7 +117,7 @@ h1 {
     </style>
     <body>
         <div class="container">
-            <h1>Tic-Tac-Toe</h1>
+            <h1 style="color: orangered; font-size: 3rem"><i>Tic-Tac-Toe</i></h1>
             <ul id="game">
                 <!-- first row -->
                 <li data-pos="0,0"></li>
@@ -136,7 +143,7 @@ h1 {
             </div>
             
             <aside id="nfo">
-                <h2>Who's Turn</h2>
+                <h2>Who's Turn:</h2>
                 <div id="whos-turn" class="x">
                     <span class="x">Player 1</span>
                     <span class="o">Player 2</span>
