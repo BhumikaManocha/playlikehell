@@ -9,6 +9,9 @@ const passport = require('passport');
 const flash = require('express-flash');
 const session = require('express-session');
 const mongoose = require('mongoose');
+const users = require('./model/users');
+const jwt = require('jsonwebtoken');
+
 // mongoose.set('useNewUrlParser', true);
 // mongoose.set('useUnifiedTopology', true);
 
@@ -47,13 +50,14 @@ app.set('view engine', 'hbs');
 
 app.use(express.urlencoded({extended:true}));
 app.use(flash());
-app.use(session({
-    secret:'asd',
-    // resave:false,
-    saveUninitialized:true
-}))
+// app.use(session({
+//     secret:'asd',
+//     // resave:false,
+//     saveUninitialized:true
+// }))
 app.use(passport.initialize())
-app.use(passport.session())
+require('./passport-config')(passport);
+// app.use(passport.session())
 
 
 // app.use(express.static('play/public'));
@@ -90,8 +94,28 @@ app.get('/register',(req,res) => {
 //     }
 //     console.log("done")
 //     console.log(users);
-
 // })
+
+app.post('/register',(req,res) => {
+    User.findOne({email : req.body.email},async(err,res)=>{
+        if(err){
+            console.log("This email has already been taken.")
+        }
+        else{
+            const hashedpassword = await bcrypt.hash(req.body.password,10);
+            // users.push({
+            //     name : req.body.name,
+            //     gamingname :req.body.gamingname,
+            //     dateofbirth : req.body.dateofbirth,
+            //     email : req.body.email,
+            //     password: hashedpassword
+            // })
+            res.redirect('/login');
+        }
+    })
+})
+
+
 
 app.get('/login',(req,res) => {
     res.render('login')
