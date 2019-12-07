@@ -9,7 +9,7 @@ const passport = require('passport');
 const flash = require('express-flash');
 const session = require('express-session');
 const mongoose = require('mongoose');
-const users = require('./model/users');
+const User = require('./model/users');
 const jwt = require('jsonwebtoken');
 
 // mongoose.set('useNewUrlParser', true);
@@ -60,11 +60,6 @@ require('./passport-config')(passport);
 // app.use(passport.session())
 
 
-// app.use(express.static('play/public'));
-// app.use(express.static(path.resolve('./public')));
-// app.use('/public', express.static(path.resolve('./public'))); //<--new line added
-// app.use(express.static(__dirname + '/styles'));
-// app.use('/static', express.static(__dirname + '/public'));
 app.use('*/images',express.static('public/images'));
 
 
@@ -122,7 +117,7 @@ app.get('/login',(req,res) => {
 })
 
 app.post('/login',passport.authenticate('local',{
-    successRedirect: '/',
+    successRedirect: '/profile',
     failureRedirect: '/login',
     failureFlash: true
 }))
