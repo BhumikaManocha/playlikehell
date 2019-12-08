@@ -97,13 +97,13 @@ app.post('/register',(req,res) => {
     //         console.log("This email has already been taken.")
     //     }
     //     else{
-            const hashedpassword = await bcrypt.hash(req.body.password,10);         
+            // const hashedpassword = bcrypt.hash(req.body.password,10);         
             let user = {
                     // name : req.body.name,
                     username :req.body.gamingname,
                     // dateofbirth : req.body.dateofbirth,
                     email : req.body.email,
-                    password: hashedpassword
+                    password: req.body.password
             };            
             console.log(user)
             User.create(user,function(err,user){
