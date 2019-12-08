@@ -29,7 +29,7 @@ const jwt = require('jsonwebtoken');
 
 mongoose
   .connect(
-    "mongodb+srv://bhumika:bhumi3699@my-first-cluster-p64nb.mongodb.net/test?retryWrites=true&w=majority"  )
+    "mongodb://bhumika:a1a2a3a4@ds141872.mlab.com:41872/bhumika"  )
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log("error -----",err));
 
