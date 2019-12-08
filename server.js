@@ -50,13 +50,13 @@ app.set('view engine', 'hbs');
 
 app.use(express.urlencoded({extended:true}));
 app.use(flash());
-// app.use(session({
-//     secret:'asd',
-//     // resave:false,
-//     saveUninitialized:true
-// }))
-app.use(passport.initialize())
-require('./passport-config')(passport);
+app.use(session({
+    secret:'asd',
+    // resave:false,
+    saveUninitialized:true
+}))
+// app.use(passport.initialize())
+// require('./passport-config')(passport);
 // app.use(passport.session())
 
 
@@ -92,22 +92,34 @@ app.get('/register',(req,res) => {
 // })
 
 app.post('/register',(req,res) => {
-    User.findOne({email : req.body.email},async(err,res)=>{
-        if(err){
-            console.log("This email has already been taken.")
-        }
-        else{
-            const hashedpassword = await bcrypt.hash(req.body.password,10);
-            // users.push({
-            //     name : req.body.name,
-            //     gamingname :req.body.gamingname,
-            //     dateofbirth : req.body.dateofbirth,
-            //     email : req.body.email,
-            //     password: hashedpassword
-            // })
-            res.redirect('/login');
-        }
-    })
+    // User.findOne({email : req.body.email},async(err,res)=>{
+    //     if(err){
+    //         console.log("This email has already been taken.")
+    //     }
+    //     else{
+    //         const hashedpassword = await bcrypt.hash(req.body.password,10);         
+            let user = {
+                    // name : req.body.name,
+                    username :req.body.gamingname,
+                    // dateofbirth : req.body.dateofbirth,
+                    email : req.body.email,
+                    password: "hashedpassword"
+            };            
+            console.log(user)
+            User.create(user,function(err,user){
+                if(err){
+                    console.log(err)
+                    res.render('register')
+                }else{
+                    console.log(user);
+                    res.redirect("/login");
+                }
+            })
+            // console.log(user);
+            // res.redirect("/login");
+        // }
+    // })
+    
 })
 
 
