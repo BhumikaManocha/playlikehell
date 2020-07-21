@@ -1,0 +1,48 @@
+body{
+    background-color:#2b2c2c!important;
+    padding: 4rem;
+}
+
+#back{
+    height: 20rem;
+    width: 20rem;
+    margin-top: -2rem;
+    background-color: white;
+    /* {{!-- transform: rotate(45deg); --}} */
+    border-radius: 50%;
+}
+
+button{
+    margin-left: 500px;
+    background-color: rgba(248, 16, 35, 0.959) !important;
+}
+
+.my-col{
+    color: wheat;
+    text-align: center;
+    font: outline;
+    font-size: 50px;
+    text-shadow: #509797;
+
+}
+
+.score{
+    background-color: wheat;
+    height: 220px;
+    text-align: center;
+    font-size: 100px;
+    line-height: 200px;
+    box-shadow: 10px 10px -10px 0px wheat;  
+} 
+
+.diceimg{
+    height:200px;
+    margin: 4rem;   
+    /* {{!-- transform: rotate(315deg) --}} */
+
+}
+
+.instruction{
+    color: white;
+    text-align: center;
+}
